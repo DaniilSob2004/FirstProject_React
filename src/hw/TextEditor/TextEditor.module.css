@@ -1,0 +1,44 @@
+.container {
+    margin: 10px;
+}
+
+.panelBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 50%;
+    min-width: 415px;
+}
+.panelBlock button {
+    width: 35px;
+    height: 35px;
+}
+.panelBlock button, select, input {
+    height: 35px;
+    background-color: #E5E5E5;
+    border: none;
+    cursor: pointer;
+}
+select {
+    padding: 6px;
+}
+
+.texteditor {
+    box-sizing: border-box;
+    width: 50%;
+    outline: none;
+}
+
+.bold {
+    font-weight: bold;
+}
+.italic {
+    font-style: italic;
+}
+.underline {
+    text-decoration: underline;
+}
+.uppercase {
+    text-transform: uppercase;
+}
