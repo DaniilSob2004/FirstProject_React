@@ -4,6 +4,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 
 import Features from './less1/Features'
 import MyCity from './hw/MyCity/MyCity'
+import Theme from './hw/Theme/Theme'
 import TextEditor from './hw/TextEditor/TextEditor'
 import Home from './less2/Home'
 import Price from './less2/Price'
@@ -20,6 +21,7 @@ function App() {
       <div>
         <p>HW 2</p>
         <TextEditor/>
+        <Theme/>
       </div>
       <hr/>
 

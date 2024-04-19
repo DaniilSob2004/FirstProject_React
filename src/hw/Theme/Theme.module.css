@@ -1,0 +1,32 @@
+:root {
+    --bg-color-light: #ffffff;
+    --text-color-light: #000000;
+    --bg-color-dark: #333333;
+    --text-color-dark: #ffffff;
+}
+
+.darkMode {
+    --bg-color-light: #333333;
+    --text-color-light: #ffffff;
+    --bg-color-dark: #ffffff;
+    --text-color-dark: #000000;
+}
+
+.container {
+    padding: 10px;
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 1px solid var(--text-color-light);
+    color: var(--text-color-light);
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: var(--text-color-light);
+    color: var(--bg-color-light);
+}
