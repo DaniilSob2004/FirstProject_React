@@ -14,10 +14,19 @@ import NotFound from './less2/NotFound'
 import Navigation from './less2/Navigation'
 import UserList from './less3/UserList'
 import Counter from './less3/Counter'
+import CounterClass from './less4/CounterClass'
+import Form1 from './less4/Form1'
 
 function App() {
   return (
     <>
+      <div>
+        <p>Lesson 4</p>
+        <CounterClass/>
+        <Form1/>
+      </div>
+      <hr/>
+
       <div>
         <p>HW 2</p>
         <TextEditor/>

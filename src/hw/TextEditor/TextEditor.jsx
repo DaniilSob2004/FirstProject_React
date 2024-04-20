@@ -2,73 +2,92 @@ import { React, useState } from 'react'
 import classes from './TextEditor.module.css'
 
 function TextEditor() {
-    const [isBold, setIsBold] = useState(false);
-    const [isItalic, setIsItalic] = useState(false);
-    const [isUnderline, setIsUnderline] = useState(false);
-    const [isUppercase, setIsUppercase] = useState(false);
+    const [editorState, setEditorState] = useState({
+        isBold: false,
+        isItalic: false,
+        isUnderline: false,
+        isUppercase: false,
+        fontSize: 12,
+        color: '',
+        font: 'Arial'
+    });
+    const fontSizeArr = [12, 24, 32, 64];
+    const fontArr = [
+        'Arial',
+        'Times New Roman',
+        'Helvetica',
+        'Verdana'
+    ];
 
-    function boldClick() {
-        setIsBold(isBold => !isBold);
-    }
-
-    function italicClick() {
-        setIsItalic(isItalic => !isItalic);
-    }
-
-    function underlineClick() {
-        setIsUnderline(isUnderline => !isUnderline);
-    }
-
-    function uppercaseClick() {
-        setIsUppercase(isUppercase => !isUppercase);
-    }
+    const toggleStyle = style => {
+        setEditorState(prevState => ({
+            ...prevState,  // копируем состояние
+            [style]: !prevState[style]  // меняем bool значение
+        }));
+    };
+    
+    const handleChange = e => {
+        setEditorState(prevState => ({
+            ...prevState,  // копируем состояние
+            [e.target.name]: e.target.value  // меняем значение
+        }));
+    };
 
     return (
         <div className={classes.container}>
             <div className={classes.panelBlock}>
                 <button
-                    onClick={boldClick}
-                    className={`${isBold && classes.bold}`}>B
+                    onClick={() => toggleStyle('isBold')}
+                    className={`${editorState.isBold && classes.bold}`}>B
                 </button>
                 <button
-                    onClick={italicClick}
-                    className={`${isItalic && classes.italic}`}>I
+                    onClick={() => toggleStyle('isItalic')}
+                    className={`${editorState.isItalic && classes.italic}`}>I
                 </button>
                 <button
-                    onClick={underlineClick}
-                    className={`${isUnderline && classes.underline}`}>U
+                    onClick={() => toggleStyle('isUnderline')}
+                    className={`${editorState.isUnderline && classes.underline}`}>U
                 </button>
                 <button
-                    onClick={uppercaseClick}
-                    className={`${isUppercase && classes.uppercase}`}>t
+                    onClick={() => toggleStyle('isUppercase')}
+                    className={`${editorState.isUppercase && classes.uppercase}`}>t
                 </button>
     
-                <select>
-                    <option value="12">12</option>
-                    <option value="24">24</option>
-                    <option value="32">32</option>
-                    <option value="64">64</option>
+                <select
+                  onChange={handleChange}
+                  name="fontSize"
+                  value={editorState.fontSize}>
+                    { fontSizeArr.map(value => <option key={value} value={value}>{value}</option>) }
                 </select>
     
-                <select>
-                    <option value="Arial">Arial</option>
-                    <option value="Times New Roman">Times New Roman</option>
-                    <option value="Helvetica">Helvetica</option>
-                    <option value="Verdana">Verdana</option>
+                <select
+                  onChange={handleChange}
+                  name="font"
+                  value={editorState.font}>
+                    { fontArr.map(value => <option key={value} value={value}>{value}</option>) }
                 </select>
     
-                <input type="color" />
+                <input
+                    type="color"
+                    onChange={handleChange}
+                    name="color"
+                    value={editorState.color} />
             </div>
             <textarea
                 rows="5"
                 className={`${classes.texteditor} 
-                            ${isBold ? classes.bold : ''} 
-                            ${isItalic ? classes.italic : ''}
-                            ${isUnderline && classes.underline}
-                            ${isUppercase && classes.uppercase}`}>
+                            ${editorState.isBold && classes.bold} 
+                            ${editorState.isItalic && classes.italic}
+                            ${editorState.isUnderline && classes.underline}
+                            ${editorState.isUppercase && classes.uppercase}`}
+                style={{
+                    fontSize: `${editorState.fontSize}px`,
+                    color: `${editorState.color}`,
+                    fontFamily: `${editorState.font}`,
+                }}>
             </textarea>
         </div>
-    )
+    );
 }
 
 export default TextEditor
