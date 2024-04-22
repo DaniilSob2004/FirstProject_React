@@ -1,0 +1,12 @@
+.section {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.fromBlock {
+    border-bottom: 2px dotted rgb(10, 115, 252);
+}
+
+.errorText {
+    color: rgb(211, 0, 0);
+}

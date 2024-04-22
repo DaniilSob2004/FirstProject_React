@@ -1,3 +1,7 @@
+  - HW 4
+
+![HW_4](https://github.com/DaniilSob2004/FirstProject_React/assets/106149184/57a1c978-c8bd-418f-8063-f60ee110abbb)
+
   - HW 3
 
 ![HW_3](https://github.com/DaniilSob2004/FirstProject_React/assets/106149184/02a262e0-978b-4594-89d6-ff98d045f44a)

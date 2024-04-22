@@ -5,6 +5,8 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import Features from './less1/Features'
 import MyCity from './hw/MyCity/MyCity'
 import Theme from './hw/Theme/Theme'
+import Comments from './hw/Comments/Comments'
+import CounterBtn from './hw/CounterBtn/CounterBtn'
 import TextEditor from './hw/TextEditor/TextEditor'
 import Home from './less2/Home'
 import Price from './less2/Price'
@@ -20,6 +22,13 @@ import Form1 from './less4/Form1'
 function App() {
   return (
     <>
+      <div>
+        <p>HW 3</p>
+        <Comments/>
+        <CounterBtn/>
+      </div>
+      <hr/>
+
       <div>
         <p>Lesson 4</p>
         <CounterClass/>
