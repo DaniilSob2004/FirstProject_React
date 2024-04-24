@@ -18,7 +18,7 @@ function Comments() {
         email: {
             value: "",
             isError: true,
-            pattern: /^[^\.]([\w\d_]\.?){1,18}[^\.]@[\w\d_]{1,20}\.\w{2,20}$/,
+            pattern: /^[^.]([\w\d_]\.?){1,18}[^.]@[\w\d_]{1,20}.\w{2,20}$/,
             errorText: "Incorrect input email"
         },
         message: {
@@ -33,6 +33,17 @@ function Comments() {
         setCommentsList(comments => comments.concat({
             email: messageFormState.email.value,
             text: messageFormState.message.value
+        }));
+        setMessageFormState(prevState => ({
+            ...prevState,
+            email: {
+                ...prevState.email,
+                value: "",
+            },
+            message: {
+                ...prevState.message,
+                value: "",
+            }
         }));
     }
 
